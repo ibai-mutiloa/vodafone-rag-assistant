@@ -1,20 +1,20 @@
 # Vodafone RAG Assistant
 
-Asistente RAG para consultas de usuarios de Vodafone con recuperación híbrida desde Azure AI Search, generación con Azure OpenAI y consulta estructurada opcional en PostgreSQL.
+RAG assistant for Vodafone user queries with hybrid retrieval from Azure AI Search, generation with Azure OpenAI, and optional structured queries in PostgreSQL.
 
 ## Features
 
-- Consulta respuestas con contexto recuperado desde Azure AI Search.
-- Combina resultados de PostgreSQL y fragmentos RAG cuando hay usuario autenticado.
-- Expone una API FastAPI con `/health` y `/ask`.
-- Incluye validación de configuración al arrancar.
+- Queries answers with context retrieved from Azure AI Search.
+- Combines PostgreSQL results and RAG fragments when an authenticated user is present.
+- Exposes a FastAPI API with `/health` and `/ask` endpoints.
+- Includes configuration validation on startup.
 
 ## Requirements
 
 - Python 3.12+
 - Azure AI Search
 - Azure OpenAI
-- PostgreSQL opcional, como fuente de verdad para perfiles de usuario
+- PostgreSQL (optional), as source of truth for user profiles
 
 ## Setup
 
