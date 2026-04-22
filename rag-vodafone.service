@@ -1,0 +1,15 @@
+[Unit]
+Description=Vodafone RAG FastAPI Service
+After=network.target
+
+[Service]
+Type=simple
+User=administrador
+WorkingDirectory=/home/administrador/vodafone
+EnvironmentFile=/home/administrador/vodafone/.env
+ExecStart=/home/administrador/vodafone/.venv/bin/python -m uvicorn api:app --host 0.0.0.0 --port 5001 --timeout-keep-alive 120
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
