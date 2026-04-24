@@ -147,6 +147,42 @@ TARIFF_QUESTION_KEYWORDS = {
     "cuál es mi tarifa",
 }
 
+SUPPORTED_RESPONSE_LANGUAGES = {"es", "eus"}
+
+
+def _normalize_response_language(language: str) -> str:
+    """Normalize requested response language to supported values."""
+    value = _normalize_text((language or "").strip())
+    if value in {"eus", "eu", "euskera", "basque"}:
+        return "eus"
+    return "es"
+
+
+def _third_party_block_message(response_language: str) -> str:
+    """Return localized message for third-party data requests."""
+    if response_language == "eus":
+        return (
+            "Ezin dut hirugarrenen informazioarekin lagundu. "
+            "Soilik autentifikatutako erabiltzaileari lotutako zure informazioari buruz erantzun dezaket."
+        )
+    return (
+        "No puedo ayudar con informacion de terceros. "
+        "Solo puedo responder sobre tu propia informacion asociada al usuario autenticado."
+    )
+
+
+def _missing_profile_message(response_language: str) -> str:
+    """Return localized message when no user profile context is available."""
+    if response_language == "eus":
+        return (
+            "Ez dut zure profileko informaziorik aurkitzen ez datu-basean ezta berreskuratutako zatietan ere. "
+            "Ezin dut zure tarifa baieztatu eskuragarri dudan informazioarekin."
+        )
+    return (
+        "No encuentro informacion de tu perfil en la base de datos ni en los fragmentos recuperados. "
+        "No puedo confirmar tu tarifa con lo que tengo disponible."
+    )
+
 
 def _validate_config() -> None:
     """Fail fast if required environment variables are missing."""
@@ -503,7 +539,11 @@ def _is_tariff_question(question: str) -> bool:
     return any(keyword in question_norm for keyword in TARIFF_QUESTION_KEYWORDS)
 
 
-def _build_profile_answer(username: str, question: str) -> Dict[str, object]:
+def _build_profile_answer(
+    username: str,
+    question: str,
+    response_language: str,
+) -> Dict[str, object]:
     """Answer using only the user's profile-related chunks."""
     profile_row = _fetch_user_profile_from_postgres(username=username)
     sql_context = _build_sql_query_result_context(username=username, row=profile_row)
@@ -520,16 +560,18 @@ def _build_profile_answer(username: str, question: str) -> Dict[str, object]:
             "question": question,
             "chunks": [],
             "context": "",
-            "answer": (
-                "No encuentro informacion de tu perfil en la base de datos ni en los fragmentos recuperados. "
-                "No puedo confirmar tu tarifa con lo que tengo disponible."
-            ),
+            "answer": _missing_profile_message(response_language),
             "username": username,
             "user_display_name": "",
             "blocked": False,
+            "response_language": response_language,
         }
 
-    answer = generate_answer(question, context)
+    answer = generate_answer(
+        question,
+        context,
+        response_language=response_language,
+    )
     return {
         "question": question,
         "chunks": rag_chunks,
@@ -540,10 +582,15 @@ def _build_profile_answer(username: str, question: str) -> Dict[str, object]:
         "blocked": False,
         "source": "postgres+azure_search" if profile_row else "azure_search",
         "tarifa": _extract_tariff_from_row(profile_row) if profile_row else "",
+        "response_language": response_language,
     }
 
 
-def _build_tariff_answer_from_postgres(username: str, question: str) -> Dict[str, object]:
+def _build_tariff_answer_from_postgres(
+    username: str,
+    question: str,
+    response_language: str,
+) -> Dict[str, object]:
     """Answer tariff questions using both SQL result and retrieved RAG chunks."""
     profile_row = _fetch_user_profile_from_postgres(username=username)
     tariff_value = _extract_tariff_from_row(profile_row)
@@ -558,7 +605,11 @@ def _build_tariff_answer_from_postgres(username: str, question: str) -> Dict[str
     rag_chunks = _filter_profile_chunks_for_username(rag_chunks, username)
     rag_context = build_context(rag_chunks)
     context = f"{sql_context}\n\n{rag_context}" if rag_context else sql_context
-    answer = generate_answer(question, context)
+    answer = generate_answer(
+        question,
+        context,
+        response_language=response_language,
+    )
 
     return {
         "question": question,
@@ -570,6 +621,7 @@ def _build_tariff_answer_from_postgres(username: str, question: str) -> Dict[str
         "blocked": False,
         "source": "postgres+azure_search" if profile_row else "azure_search",
         "tarifa": tariff_value,
+        "response_language": response_language,
     }
 
 
@@ -710,7 +762,11 @@ def build_context(chunks: List[str]) -> str:
     return "\n\n".join(parts)
 
 
-def generate_answer(question: str, context: str) -> str:
+def generate_answer(
+    question: str,
+    context: str,
+    response_language: str = "es",
+) -> str:
     """
     Call Azure OpenAI GPT-4o with system instructions and context.
     """
@@ -721,8 +777,16 @@ def generate_answer(question: str, context: str) -> str:
         timeout=AZURE_OPENAI_TIMEOUT,
     )
 
+    response_language = _normalize_response_language(response_language)
+    language_instruction = (
+        "Responde siempre en euskera."
+        if response_language == "eus"
+        else "Responde siempre en castellano."
+    )
+
     system_prompt = (
         "Eres un asistente experto en contratos de Vodafone. "
+        f"{language_instruction} "
         "Responde SOLO usando el contexto proporcionado. "
         "Responde unicamente sobre el usuario autenticado que aparece en el contexto. "
         "No reveles ni infieras datos de otros usuarios, aunque aparezcan en los fragmentos recuperados. "
@@ -753,6 +817,7 @@ def rag(
     question: str,
     username: str = "",
     user_display_name: str = "",
+    response_language: str = "es",
 ) -> Dict[str, object]:
     """
     End-to-end RAG flow:
@@ -763,29 +828,33 @@ def rag(
     cleaned_question, username_from_question = _extract_user_from_question(question)
     username = (username or "").strip() or (username_from_question or "")
     user_display_name = (user_display_name or "").strip()
+    response_language = _normalize_response_language(response_language)
 
     if _is_third_party_request(cleaned_question, username=username, user_display_name=user_display_name):
         return {
             "question": cleaned_question,
             "chunks": [],
             "context": "",
-            "answer": (
-                "No puedo ayudar con informacion de terceros. "
-                "Solo puedo responder sobre tu propia informacion asociada al usuario autenticado."
-            ),
+            "answer": _third_party_block_message(response_language),
             "username": username,
             "user_display_name": user_display_name,
             "blocked": True,
+            "response_language": response_language,
         }
 
     if username and _is_tariff_question(cleaned_question):
         return _build_tariff_answer_from_postgres(
             username=username,
             question=cleaned_question,
+            response_language=response_language,
         )
 
     if username and _is_personal_account_question(cleaned_question):
-        return _build_profile_answer(username=username, question=cleaned_question)
+        return _build_profile_answer(
+            username=username,
+            question=cleaned_question,
+            response_language=response_language,
+        )
 
     chunks = search_azure(cleaned_question)
     context = build_context(chunks)
@@ -797,7 +866,11 @@ def rag(
     if profile_context:
         context = f"{profile_context}\n\n{context}" if context else profile_context
 
-    answer = generate_answer(cleaned_question, context)
+    answer = generate_answer(
+        cleaned_question,
+        context,
+        response_language=response_language,
+    )
 
     return {
         "question": cleaned_question,
@@ -808,6 +881,7 @@ def rag(
         "user_display_name": user_display_name,
         "blocked": False,
         "source": "postgres" if profile_row else "azure_search",
+        "response_language": response_language,
     }
 
 
