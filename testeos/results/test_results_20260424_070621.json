@@ -1,0 +1,66 @@
+[
+  {
+    "id": 11,
+    "question": "\"Me voy de viaje de trabajo a Estados Unidos, ¿tengo incluidos los datos y llamadas?\"",
+    "ground_truth": "Sí, Estados Unidos está incluido en la Zona 1 (Roaming). Tanto las llamadas como los datos de tu tarifa Infinity Business funcionan allí como si estuvieras en España (sujeto a Política de Uso Razonable).",
+    "api_answer": "No puedo ayudar con informacion de terceros. Solo puedo responder sobre tu propia informacion asociada al usuario autenticado.",
+    "chunks_count": 0,
+    "error": ""
+  },
+  {
+    "id": 12,
+    "question": "\"¿Qué países están incluidos en mi roaming gratuito además de Europa?\"",
+    "ground_truth": "Además de la UE y Reino Unido, se incluyen Estados Unidos, Islandia, Liechtenstein, Noruega, Suiza, Turquía, Albania y Mónaco (Zona 1).",
+    "api_answer": "No puedo ayudar con informacion de terceros. Solo puedo responder sobre tu propia informacion asociada al usuario autenticado.",
+    "chunks_count": 0,
+    "error": ""
+  },
+  {
+    "id": 13,
+    "question": "\"He gastado todos los datos este mes y necesito seguir trabajando, ¿puedo pedir más?\"",
+    "ground_truth": "Sí, el contrato prevé Bonos Extra (individuales o compartidos) de 1GB, 2GB, 5GB o hasta 10GB que se pueden contratar puntualmente si se agota el crédito principal.",
+    "api_answer": "Sí, puedes solicitar más datos para seguir trabajando. Según el contexto, tienes la tarifa \"Infinity Business 10GB\", que tiene un límite de 10 GB de uso de datos. Una vez superado este límite, puedes seguir navegando a una velocidad reducida de 8 Kbps. Sin embargo, también tienes la opción de contratar bonos extra de datos, ya sea mensuales o puntuales, para aumentar tu capacidad de navegación [Fragmento 1, Fragmento 2].\n\nPara gestionar esta contratación, puedes acceder a Mi Vodafone Business o contactar con la plataforma de atención personalizada.",
+    "chunks_count": 3,
+    "error": ""
+  },
+  {
+    "id": 14,
+    "question": "\"Si llamo a un compañero de la universidad que también tiene móvil de empresa, ¿nos cobran?\"",
+    "ground_truth": "No, las llamadas Intragrupo (entre líneas de la misma cuenta de MGEP) tienen un descuento del 100%, por lo que el coste es de 0 €.",
+    "api_answer": "No puedo ayudar con informacion de terceros. Solo puedo responder sobre tu propia informacion asociada al usuario autenticado.",
+    "chunks_count": 0,
+    "error": ""
+  },
+  {
+    "id": 15,
+    "question": "\"Estoy en Suiza y quiero llamar a un número local de allí, ¿está incluido?\"",
+    "ground_truth": "Sí, al ser Suiza Zona 1, las llamadas realizadas desde allí a otros países de la Zona 1 (como la propia Suiza o España) están incluidas en la tarifa.",
+    "api_answer": "No puedo ayudar con informacion de terceros. Solo puedo responder sobre tu propia informacion asociada al usuario autenticado.",
+    "chunks_count": 0,
+    "error": ""
+  },
+  {
+    "id": 16,
+    "question": "\"He perdido mi tarjeta SIM, ¿cómo pido un duplicado?\"",
+    "ground_truth": "Debes contactar con el responsable de telefonía de MGEP. El coste del duplicado de SIM según contrato es de 5 € por tarjeta.",
+    "api_answer": "En los fragmentos recuperados no aparece información específica sobre cómo puedes solicitar un duplicado de tu tarjeta SIM. Te recomendaría contactar directamente con el servicio de atención al cliente de Vodafone para gestionar esta solicitud.",
+    "chunks_count": 3,
+    "error": ""
+  },
+  {
+    "id": 17,
+    "question": "\"¿A partir de qué hora puedo llamar al servicio técnico si tengo un problema con la línea?\"",
+    "ground_truth": "El horario de atención para incidencias (900 878 007) es de 24 horas al día, los 7 días de la semana (24x7).",
+    "api_answer": "No puedo ayudar con informacion de terceros. Solo puedo responder sobre tu propia informacion asociada al usuario autenticado.",
+    "chunks_count": 0,
+    "error": ""
+  },
+  {
+    "id": 18,
+    "question": "\"Si me paso del límite de datos en el extranjero, ¿se corta internet o solo va más lento?\"",
+    "ground_truth": "En Roaming Zona 1, una vez superado el umbral de la Política de Uso Razonable, se puede aplicar un recargo por GB adicional, pero no se corta el servicio automáticamente.",
+    "api_answer": "No puedo ayudar con informacion de terceros. Solo puedo responder sobre tu propia informacion asociada al usuario autenticado.",
+    "chunks_count": 0,
+    "error": ""
+  }
+]

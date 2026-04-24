@@ -1,0 +1,176 @@
+════════════════════════════════════════════════════════════════════════════════
+SUITE RAGAS - REFERENCIA RÁPIDA
+════════════════════════════════════════════════════════════════════════════════
+
+📁 UBICACIÓN:
+  /home/administrador/vodafone/testeos/
+
+🚀 INICIO RÁPIDO (2 COMANDOS):
+  
+  Terminal 1: cd /home/administrador/vodafone && python -m uvicorn api:app --reload
+  Terminal 2: cd /home/administrador/vodafone/testeos && make test
+
+════════════════════════════════════════════════════════════════════════════════
+
+📋 ARCHIVOS PRINCIPALES:
+
+DOCUMENTACIÓN:
+  • QUICK_START.md                    👈 LEE ESTO PRIMERO
+  • INDEX.md                          Índice central
+  • README.md                         Documentación completa
+  • COMANDOS.md                       Lista de comandos
+  • INTERPRETACION_RESULTADOS.md      Cómo entender métricas
+
+SCRIPTS:
+  • simple_test.py                    Test rápido (RECOMENDADO)
+  • run_ragas_test.py                 Test completo con RAGAS
+  • run_tests.sh                      Script bash
+  • view_results.py                   Visualizador
+
+DATOS:
+  • test_data.csv                     10 preguntas + respuestas
+  • Makefile                          Automatización
+  • requirements_ragas.txt            Dependencias
+
+════════════════════════════════════════════════════════════════════════════════
+
+🎯 COMANDOS PRINCIPALES:
+
+make test                  → Ejecutar tests (lo más común)
+make view                  → Ver resumen de resultados
+make view-detailed         → Ver todos los detalles
+make view-interactive      → Modo interactivo
+make api                   → Arrancar API
+make clean                 → Limpiar resultados
+make help                  → Ver todas las opciones
+
+════════════════════════════════════════════════════════════════════════════════
+
+📊 FLUJO DE TRABAJO:
+
+1. Arranca API (Terminal 1):
+   python -m uvicorn api:app --reload
+
+2. Ejecuta tests (Terminal 2):
+   cd testeos && make test
+
+3. Ver resultados:
+   make view              (resumen)
+   make view-detailed     (todos los detalles)
+
+4. Analizar resultados:
+   Leer INTERPRETACION_RESULTADOS.md
+
+════════════════════════════════════════════════════════════════════════════════
+
+📈 LAS 10 PREGUNTAS PROBADAS:
+
+ 1. Duración total del contrato y fechas de inicio/fin
+ 2. Tarifas si el contrato termina y se negocia
+ 3. Límite de datos para Infinity Business Total
+ 4. Beneficio de Datos Compartidos Nacional
+ 5. Esquema de tarificación de llamadas
+ 6. Nivel de disponibilidad de red de voz
+ 7. Perfiles de autorización para firmar documentos
+ 8. Procedimiento de notificación de incidencias
+ 9. Solicitud de aumento de minutos/SMS
+10. Aplicación de compensaciones
+
+════════════════════════════════════════════════════════════════════════════════
+
+📂 RESULTADOS GENERADOS:
+
+Después de ejecutar tests, encontrarás en testeos/results/:
+  
+  test_results_YYYYMMDD_HHMMSS.json     Resultados JSON completos
+  test_results_YYYYMMDD_HHMMSS.csv      Resultados CSV (Excel-friendly)
+  evaluation_results.json               Métricas RAGAS
+
+════════════════════════════════════════════════════════════════════════════════
+
+✅ CARACTERÍSTICAS:
+
+✓ 10 preguntas pre-configuradas
+✓ Ground truth proporcionadas
+✓ Integración con API Vodafone
+✓ Métricas RAGAS automáticas
+✓ Reportes JSON y CSV
+✓ Visualización interactiva
+✓ Makefile para automatización
+✓ Documentación completa en español
+✓ Scripts listos para ejecutar
+
+════════════════════════════════════════════════════════════════════════════════
+
+🔧 REQUISITOS:
+
+✓ Python 3.8+
+✓ FastAPI instalado
+✓ Azure OpenAI SDK configurado
+✓ Variables de entorno en .env
+
+════════════════════════════════════════════════════════════════════════════════
+
+🐛 TROUBLESHOOTING RÁPIDO:
+
+❌ "Connection refused"
+   → Asegúrate que la API está corriendo en Terminal 1
+
+❌ "Missing environment variables"
+   → Verifica que .env tiene todas las variables de Azure
+
+❌ "ModuleNotFoundError: ragas"
+   → pip install -r testeos/requirements_ragas.txt
+
+❌ "Permission denied" en run_tests.sh
+   → chmod +x /home/administrador/vodafone/testeos/run_tests.sh
+
+════════════════════════════════════════════════════════════════════════════════
+
+📞 AYUDA:
+
+Pregunta: ¿Cómo empiezo?
+Respuesta: Lee QUICK_START.md o ejecuta: make test
+
+Pregunta: ¿Qué significan las métricas?
+Respuesta: Lee INTERPRETACION_RESULTADOS.md
+
+Pregunta: ¿Qué comandos hay disponibles?
+Respuesta: Ejecuta: make help
+
+Pregunta: ¿Cómo analizo los resultados?
+Respuesta: Ejecuta: make view-detailed
+
+════════════════════════════════════════════════════════════════════════════════
+
+⚡ ATAJO PARA EXPERTOS:
+
+# One-liner para ejecutar tests:
+python -m uvicorn api:app --reload &
+sleep 2 && cd testeos && make test
+
+# Ver último resultado:
+python view_results.py
+
+# Limpiar y volver a ejecutar:
+make clean && make test
+
+════════════════════════════════════════════════════════════════════════════════
+
+🎓 SIGUIENTE NIVEL:
+
+- Leer código de simple_test.py para entender cómo funciona
+- Customizar test_data.csv con preguntas propias
+- Ejecutar run_ragas_test.py para métricas completas
+- Automatizar con cron jobs
+- Comparar múltiples ejecuciones
+
+════════════════════════════════════════════════════════════════════════════════
+
+¡LISTO PARA EMPEZAR! 🚀
+
+Ejecuta en dos terminales:
+  Terminal 1: python -m uvicorn api:app --reload
+  Terminal 2: cd testeos && make test
+
+════════════════════════════════════════════════════════════════════════════════

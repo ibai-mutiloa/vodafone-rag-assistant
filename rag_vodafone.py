@@ -442,75 +442,42 @@ def _extract_tariff_from_row(row: Dict[str, str]) -> str:
 
 
 def _is_third_party_request(question: str, username: str, user_display_name: str) -> bool:
-    """Detect if the user asks about someone else rather than their own profile."""
+    """Detect if the user asks about someone else rather than their own profile.
+    
+    SIMPLIFIED LOGIC:
+    - If a valid username is provided, the user is authenticated
+    - Allow authenticated users to ask about their own account
+    - Only check for third-party requests if NO username is provided
+    """
+    
+    # If we have a valid username, consider the user authenticated
+    # and allow them to ask questions about their own account
+    if username and len(username.strip()) > 3:
+        # User is authenticated - only block if explicitly asking about another person
+        question_norm = _normalize_text(question)
+        explicit_third_party_phrases = [
+            "del usuario ",
+            "de otro usuario",
+            "de otra persona",
+            "de juan",
+            "de maria",
+            "de carlos",
+            "de mi jefe",
+            "de mi compañero ",
+            "de mi amigo ",
+        ]
+        if any(phrase in question_norm for phrase in explicit_third_party_phrases):
+            return True
+        # Allow authenticated user to proceed
+        return False
+    
+    # No username provided - apply original restrictive logic
     if not question.strip():
         return False
 
     question_norm = _normalize_text(question)
-    own_tokens = {
-        _normalize_text(username) if username else "",
-        _normalize_text(user_display_name) if user_display_name else "",
-    }
-    own_tokens = {token for token in own_tokens if token}
-    self_reference_prefixes = ("mi ", "mis ", "mio", "mia", "mias", "mios")
-    non_person_targets = {
-        "telefono",
-        "numero",
-        "numero de telefono",
-        "linea",
-        "tarifa",
-        "plan",
-        "factura",
-        "contrato",
-        "saldo",
-        "consumo",
-        "datos",
-        "correo",
-        "email",
-        "direccion",
-    }
-
-    for pattern in THIRD_PARTY_REQUEST_PATTERNS:
-        match = re.search(pattern, question, re.IGNORECASE)
-        if not match:
-            continue
-
-        candidate = match.group(1).strip()
-        candidate_norm = _normalize_text(candidate)
-        if not candidate_norm:
-            continue
-
-        if candidate_norm in {"mi", "mio", "mía", "mio", "mis"}:
-            continue
-
-        if candidate_norm.startswith(self_reference_prefixes):
-            continue
-
-        if candidate_norm in non_person_targets:
-            continue
-
-        if candidate_norm in own_tokens:
-            continue
-
-        # If the user explicitly references another person, block it.
-        if candidate_norm not in own_tokens:
-            return True
-
-    # Also block generic requests that clearly ask for other people's data.
-    suspicious_phrases = [
-        "tarifa de",
-        "contrato de",
-        "datos de",
-        "informacion de",
-        "información de",
-        "saldo de",
-        "consumo de",
-    ]
-    for phrase in suspicious_phrases:
-        if phrase in question_norm and "mi " not in question_norm and "mio" not in question_norm:
-            return True
-
-    return False
+    # Without authentication, be very restrictive
+    return True
 
 
 def _filter_profile_chunks_for_username(chunks: List[str], username: str) -> List[str]:

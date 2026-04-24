@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "question": "¿Cuál es la duración total del contrato y cuáles son sus fechas de inicio y fin?",
+    "ground_truth": "El contrato tiene una duración de 24 meses, con fecha de inicio el 01/09/2025 y fecha de fin el 01/09/2027.",
+    "api_answer": "No puedo ayudar con informacion de terceros. Solo puedo responder sobre tu propia informacion asociada al usuario autenticado.",
+    "chunks_count": 0,
+    "error": ""
+  },
+  {
+    "id": 2,
+    "question": "¿Qué sucede con las tarifas si el contrato termina y las partes siguen negociando sin llegar a un acuerdo?",
+    "ground_truth": "Vodafone prorrogará las tarifas detalladas por un periodo máximo de 12 meses mientras dure la negociación. Si no hay acuerdo tras ese plazo, Vodafone puede retrotraer descuentos y aplicar tarifas base.",
+    "api_answer": "Si el contrato termina y las partes siguen negociando sin llegar a un acuerdo, Vodafone prorrogará las tarifas detalladas en las Condiciones Particulares mientras dure la negociación, hasta un periodo máximo de 12 meses. Si al finalizar este periodo no se alcanza un nuevo acuerdo, Vodafone tendrá derecho a retrotraer al cliente los descuentos y beneficios aplicados desde la fecha de fin de vigencia del contrato, aplicando las tarifas base de cada servicio [Fragmento 1].",
+    "chunks_count": 3,
+    "error": ""
+  },
+  {
+    "id": 3,
+    "question": "¿Cuál es el límite de datos mensual para la tarifa \"\"Infinity Business Total\"\" antes de que se reduzca la velocidad?",
+    "ground_truth": "La tarifa mantiene la máxima velocidad hasta un límite de 1TB mensual; una vez alcanzado, se reduce a 128kbps.",
+    "api_answer": "No puedo ayudar con informacion de terceros. Solo puedo responder sobre tu propia informacion asociada al usuario autenticado.",
+    "chunks_count": 0,
+    "error": ""
+  },
+  {
+    "id": 4,
+    "question": "¿En qué consiste el beneficio de \"\"Datos Compartidos Nacional\"\" y quiénes están excluidos?",
+    "ground_truth": "El tráfico de datos es compartido por las líneas Infinity Business de una misma cuenta facturable. Sin embargo, las líneas con tarifa Infinity Business Total o Tablet Total no aportan ni disfrutan de este beneficio compartido.",
+    "api_answer": "El beneficio de \"Datos Compartidos Nacional\" consiste en que el tráfico de datos móviles para uso en territorio nacional es compartido entre las diferentes líneas móviles de la proposición Infinity Business dentro de una misma cuenta de facturación y en el mismo periodo de tarificación mensual. El volumen máximo de datos compartidos depende del número de líneas en la cuenta, ya que cada línea aporta los GB indicados en la tabla de \"Cuotas mensuales\" del \"Apéndice de Condiciones Económicas\" [Fragmento 1].\n\nLas líneas con tarifa **Infinity Business Total** o **Infinity Business Tablet Total** están excluidas de este beneficio, ya que no disfrutan del beneficio compartido de datos ni aportan GB al mismo. Estas líneas tienen un beneficio individual de datos ilimitados [Fragmento 1].",
+    "chunks_count": 3,
+    "error": ""
+  },
+  {
+    "id": 5,
+    "question": "¿Qué esquema de tarificación se aplica a las llamadas realizadas dentro de los créditos establecidos?",
+    "ground_truth": "Se aplica el esquema de tarificación de \"segundos 1+1\", contabilizando los segundos reales consumidos sin coste de establecimiento de llamada.",
+    "api_answer": "No puedo ayudar con informacion de terceros. Solo puedo responder sobre tu propia informacion asociada al usuario autenticado.",
+    "chunks_count": 0,
+    "error": ""
+  },
+  {
+    "id": 6,
+    "question": "¿Cuál es el nivel de disponibilidad de red garantizado para el servicio de voz?",
+    "ground_truth": "Vodafone mantiene un compromiso de disponibilidad de la red de voz mayor o igual al 99,8%.",
+    "api_answer": "No puedo ayudar con informacion de terceros. Solo puedo responder sobre tu propia informacion asociada al usuario autenticado.",
+    "chunks_count": 0,
+    "error": ""
+  },
+  {
+    "id": 7,
+    "question": "¿Qué perfil de autorización es el único que permite firmar documentos como altas de nuevas líneas?",
+    "ground_truth": "El perfil de \"Responsable\" es el único que permite firmar documentos en nombre de la empresa.",
+    "api_answer": "No puedo ayudar con informacion de terceros. Solo puedo responder sobre tu propia informacion asociada al usuario autenticado.",
+    "chunks_count": 0,
+    "error": ""
+  },
+  {
+    "id": 8,
+    "question": "¿Cuál es el procedimiento para notificar una incidencia técnica y qué teléfono se debe usar?",
+    "ground_truth": "La incidencia debe notificarse llamando al Servicio de Asistencia Técnica Gran Empresa al número 900 878 007.",
+    "api_answer": "No puedo ayudar con informacion de terceros. Solo puedo responder sobre tu propia informacion asociada al usuario autenticado.",
+    "chunks_count": 0,
+    "error": ""
+  },
+  {
+    "id": 9,
+    "question": "¿Qué sucede si un cliente detecta que necesita más minutos o SMS en sus créditos iniciales?",
+    "ground_truth": "El cliente dispone de un periodo de 3 meses desde el inicio para solicitar un aumento, lo que conllevará una actualización de cuotas mediante un Anexo escrito.",
+    "api_answer": "No puedo ayudar con informacion de terceros. Solo puedo responder sobre tu propia informacion asociada al usuario autenticado.",
+    "chunks_count": 0,
+    "error": ""
+  },
+  {
+    "id": 10,
+    "question": "¿Cómo se aplican las compensaciones en caso de incumplimiento de los tiempos de resolución de incidencias?",
+    "ground_truth": "Las compensaciones aprobadas se aplican en forma de descuento en la factura del cliente.",
+    "api_answer": "No puedo ayudar con informacion de terceros. Solo puedo responder sobre tu propia informacion asociada al usuario autenticado.",
+    "chunks_count": 0,
+    "error": ""
+  }
+]
