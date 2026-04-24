@@ -1,0 +1,29 @@
+id,question,ground_truth,api_answer,chunks_count,error
+11,"""Me voy de viaje de trabajo a Estados Unidos, ¿tengo incluidos los datos y llamadas?""","Sí, Estados Unidos está incluido en la Zona 1 (Roaming). Tanto las llamadas como los datos de tu tarifa Infinity Business funcionan allí como si estuvieras en España (sujeto a Política de Uso Razonable).","Sí, Martin Corbella Zubizarreta, según las reglas generales del contrato de Vodafone para flotas corporativas, los servicios de Roaming en Estados Unidos están incluidos dentro de la Zona 1. Esto significa que puedes utilizar tus datos móviles y realizar llamadas sin coste adicional, siempre que no excedas los límites de tu tarifa contratada, que en tu caso es la **Infinity Business 10GB**.
+
+Además, las llamadas intragrupo (a compañeros dentro de la empresa) son gratuitas, y cuentas con soporte técnico disponible las 24 horas, los 7 días de la semana.
+
+Si necesitas más detalles sobre los límites específicos de tu tarifa o alguna condición adicional, no dudes en preguntar.",3,
+12,"""¿Qué países están incluidos en mi roaming gratuito además de Europa?""","Además de la UE y Reino Unido, se incluyen Estados Unidos, Islandia, Liechtenstein, Noruega, Suiza, Turquía, Albania y Mónaco (Zona 1).","Tu tarifa actual, **Infinity Business 10GB**, incluye roaming gratuito en los países de la **Zona 1**, que abarca **Europa** y otros países adicionales. Además de Europa, los países incluidos en la Zona 1 son:
+
+- **Estados Unidos** (incluyendo Alaska y Hawái)
+- **Canadá**
+- **Turquía**
+- **Groenlandia**
+- **Rusia Europea**
+- **Serbia y Montenegro**
+- **Ucrania**
+
+Si tienes alguna duda adicional sobre tu tarifa o necesitas más información, no dudes en preguntar.",3,
+13,"""He gastado todos los datos este mes y necesito seguir trabajando, ¿puedo pedir más?""","Sí, el contrato prevé Bonos Extra (individuales o compartidos) de 1GB, 2GB, 5GB o hasta 10GB que se pueden contratar puntualmente si se agota el crédito principal.","Sí, Martin Corbella Zubizarreta puede solicitar más datos para su línea con tarifa Infinity Business 10GB. Según el contrato, tiene la opción de contratar bonos extra de datos móviles, que pueden ser compartidos o individuales. Los bonos disponibles incluyen opciones de 5 GB, 10 GB, 20 GB, 40 GB, 100 GB y 200 GB, y se pueden contratar de forma mensual o puntual. 
+
+Para gestionar esta solicitud, puede acceder a Mi Vodafone Business o contactar con la plataforma de atención personalizada de Vodafone. Es importante tener en cuenta que el disfrute de estos bonos lleva asociado el pago total de la cuota correspondiente y no se puede prorratear por días [Fragmento 1 y 2].",3,
+14,"""Si llamo a un compañero de la universidad que también tiene móvil de empresa, ¿nos cobran?""","No, las llamadas Intragrupo (entre líneas de la misma cuenta de MGEP) tienen un descuento del 100%, por lo que el coste es de 0 €.","No, no se te cobrará por llamar a un compañero de la universidad que también tenga un móvil corporativo de MGEP, ya que las llamadas intragrupo son gratuitas en todas las tarifas Infinity Business, incluida tu tarifa actual Infinity Business 10GB. Esto aplica siempre que ambos móviles pertenezcan al grupo corporativo de MGEP.",3,
+15,"""Estoy en Suiza y quiero llamar a un número local de allí, ¿está incluido?""","Sí, al ser Suiza Zona 1, las llamadas realizadas desde allí a otros países de la Zona 1 (como la propia Suiza o España) están incluidas en la tarifa.","Sí, Martin Corbella Zubizarreta, tu tarifa actual es **Infinity Business 10GB**, y las condiciones de Roaming en **Zona 1** (que incluye Suiza) son transversales a todas las tarifas Infinity Business. Esto significa que las llamadas realizadas desde Suiza a números locales de ese país están incluidas en tu contrato sin coste adicional.",3,
+16,"""He perdido mi tarjeta SIM, ¿cómo pido un duplicado?""",Debes contactar con el responsable de telefonía de MGEP. El coste del duplicado de SIM según contrato es de 5 € por tarjeta.,"Para solicitar un duplicado de tu tarjeta SIM perdida, debes ponerte en contacto con el soporte técnico de Vodafone. Como tu tarifa es Infinity Business 10GB, tienes acceso al soporte técnico 24x7, por lo que puedes realizar esta gestión en cualquier momento. 
+
+Te recomiendo que llames al servicio de atención al cliente de Vodafone o que gestiones el duplicado a través del portal corporativo de Vodafone, si está disponible para tu empresa. También puedes acudir a una tienda física de Vodafone con tu identificación y los datos de tu línea para realizar el trámite.",3,
+17,"""¿A partir de qué hora puedo llamar al servicio técnico si tengo un problema con la línea?""","El horario de atención para incidencias (900 878 007) es de 24 horas al día, los 7 días de la semana (24x7).","El servicio de asistencia técnica de Vodafone para empresas está disponible **24 horas al día, todos los días del año**. Puedes contactar con ellos en cualquier momento a través del teléfono gratuito **900.878.007** para reportar problemas con tu línea o cualquier otra incidencia técnica. Esto aplica a todas las tarifas Infinity Business, incluida la tuya, Infinity Business 10GB. [Fragmento 2]",3,
+18,"""Si me paso del límite de datos en el extranjero, ¿se corta internet o solo va más lento?""","En Roaming Zona 1, una vez superado el umbral de la Política de Uso Razonable, se puede aplicar un recargo por GB adicional, pero no se corta el servicio automáticamente.","Si te pasas del límite de datos en el extranjero, en tu caso con la tarifa **Infinity Business 10GB**, podrás seguir navegando pero a una velocidad reducida de **8 Kbps**. Esto significa que no se corta el acceso a internet, pero la velocidad será extremadamente baja, lo que puede dificultar el uso de aplicaciones y servicios en línea. 
+
+Si necesitas más datos, puedes contratar un bono extra de datos a través de **Mi Vodafone Business** o contactando con la atención personalizada.",3,
