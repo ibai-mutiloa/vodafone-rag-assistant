@@ -149,6 +149,25 @@ TARIFF_QUESTION_KEYWORDS = {
 
 SUPPORTED_RESPONSE_LANGUAGES = {"es", "eus"}
 
+ZONA_WORLD_COUNTRY_KEYWORDS = {"canada", "japon", "mexico"}
+FAIR_USE_ZONE1_COUNTRY_KEYWORDS = {
+    "alemania",
+    "francia",
+    "italia",
+    "portugal",
+    "noruega",
+    "suiza",
+    "turquia",
+    "albania",
+    "monaco",
+    "islandia",
+    "liechtenstein",
+    "estados unidos",
+    "eeuu",
+    "usa",
+    "reino unido",
+}
+
 
 def _normalize_response_language(language: str) -> str:
     """Normalize requested response language to supported values."""
@@ -506,6 +525,47 @@ def _is_tariff_question(question: str) -> bool:
     return any(keyword in question_norm for keyword in TARIFF_QUESTION_KEYWORDS)
 
 
+def _enrich_roaming_query(question: str) -> str:
+    """Enrich retrieval query for known roaming scenarios that need contract anchors."""
+    question_norm = _normalize_text(question)
+    enriched = question
+
+    if any(country in question_norm for country in ZONA_WORLD_COUNTRY_KEYWORDS):
+        enriched += (
+            " Zona World Zona 2 Grandes Clientes Bono Compartido Zona 2 "
+            "500 MB 140 euros"
+        )
+
+    if any(term in question_norm for term in {"sms", "llamada", "llamadas", "recibida", "recibidas"}):
+        enriched += " descuento 100 por ciento coste final 0 euros"
+
+    return enriched
+
+
+def _inject_fair_use_context(question: str, context: str) -> str:
+    """Inject contractual warning for long stays in Zona 1 (>4 months)."""
+    question_norm = _normalize_text(question)
+    has_long_stay = bool(re.search(r"\b([5-9]|[1-9][0-9]+)\s*mes", question_norm))
+    mentions_remote_stay = any(
+        marker in question_norm
+        for marker in {"6 meses", "5 meses", "trabajando en remoto", "quedarme", "larga estancia"}
+    )
+    mentions_zona1_country = any(
+        country in question_norm for country in FAIR_USE_ZONE1_COUNTRY_KEYWORDS
+    )
+
+    if (has_long_stay or mentions_remote_stay) and mentions_zona1_country:
+        note = (
+            "\n[Nota contractual MGEP - Politica de Uso Razonable]\n"
+            "Si en un periodo de 4 meses el consumo y la estancia en Zona 1 superan al uso en Espana, "
+            "Vodafone puede notificar uso abusivo y aplicar recargos. "
+            "Para estancias superiores a 4 meses en Zona 1, advertir siempre este riesgo.\n"
+        )
+        return note + context
+
+    return context
+
+
 def _build_profile_answer(
     username: str,
     question: str,
@@ -514,8 +574,9 @@ def _build_profile_answer(
     """Answer using only the user's profile-related chunks."""
     profile_row = _fetch_user_profile_from_postgres(username=username)
     sql_context = _build_sql_query_result_context(username=username, row=profile_row)
+    rag_question = _enrich_roaming_query(question)
     rag_chunks = search_azure(
-        question,
+        rag_question,
         username_filter=username,
     )
     rag_chunks = _filter_profile_chunks_for_username(rag_chunks, username)
@@ -534,6 +595,7 @@ def _build_profile_answer(
             "response_language": response_language,
         }
 
+    context = _inject_fair_use_context(question, context)
     answer = generate_answer(
         question,
         context,
@@ -565,13 +627,15 @@ def _build_tariff_answer_from_postgres(
         username=username,
         row=profile_row,
     )
+    rag_question = _enrich_roaming_query(question)
     rag_chunks = search_azure(
-        question,
+        rag_question,
         username_filter=username,
     )
     rag_chunks = _filter_profile_chunks_for_username(rag_chunks, username)
     rag_context = build_context(rag_chunks)
     context = f"{sql_context}\n\n{rag_context}" if rag_context else sql_context
+    context = _inject_fair_use_context(question, context)
     answer = generate_answer(
         question,
         context,
@@ -758,25 +822,120 @@ def generate_answer(
         "Responde unicamente sobre el usuario autenticado que aparece en el contexto. "
         "No reveles ni infieras datos de otros usuarios, aunque aparezcan en los fragmentos recuperados. "
         "\n"
-        "IMPORTANTE - APLICACIÓN DE REGLAS TRANSVERSALES:\n"
-        "Las condiciones de Roaming (Zona 1), el soporte técnico 24x7, y las llamadas gratuitas intragrupo "
-        "son transversales a TODAS las tarifas Infinity Business. Si el usuario pregunta por un viaje a "
-        "Estados Unidos, Suiza, o cualquier país de Zona 1, utiliza las reglas generales de 'Zona 1' del "
-        "contrato aunque no se mencionen específicamente dentro de su tarifa actual.\n"
+
+        "ZONAS DE ROAMING - CLASIFICACIÓN OFICIAL (CRÍTICO, NO CONTRADECIR NUNCA):\n"
+        "Zona 1 (Europa): Países de la UE, Reino Unido, Noruega, Islandia, Liechtenstein, Suiza, "
+        "Turquía, Gibraltar, Mónaco, San Marino, Kosovo, Caribe Francés, La Reunión. "
+        "BAJO NINGÚN CONCEPTO incluyas EE.UU., Canadá, México, Puerto Rico ni ningún país americano en Zona 1.\n"
+        "Zona 2 (World Grandes Clientes): EE.UU., Canadá, México, Japón, Argentina, Brasil, Australia, "
+        "Marruecos, China, India, Puerto Rico y muchos otros. "
+        "Los datos en Zona 2 van contra el Bono Compartido Zona 2. "
+        "Si se supera el bono, se aprovisiona automáticamente un bono adicional de 500 MB a 140 euros.\n"
+        "Zona 3: Bolivia, Venezuela, Nigeria, Pakistán, y otros países no incluidos en Zona 1 ni Zona 2.\n"
+        "Zona 4: Cuba, Angola, Iraq, Kuwait, Emiratos Árabes Unidos (Dubai), y otros. "
+        "Es la zona más cara del contrato.\n"
+        "Zona 5: Andorra (únicamente). No pertenece a Zona 1 pese a ser país vecino.\n"
+        "Andorra NO es Zona 1. Las Islas Canarias son territorio nacional, sin roaming.\n"
         "\n"
+
+        # NUEVO: precios roaming Zona 4 hardcodeados para evitar que el RAG recupere
+        # la tabla de llamadas internacionales desde España (precios distintos)
+        "TARIFAS DE ROAMING EN ZONA 4 (CRÍTICO - USAR SIEMPRE ESTOS PRECIOS PARA ZONA 4):\n"
+        "Cuando el usuario esté físicamente EN un país de Zona 4 (Cuba, Dubai, Kuwait, Angola...):\n"
+        "- Llamadas realizadas desde Zona 4: establecimiento 0,49 € + 4,96 €/min.\n"
+        "- Llamadas recibidas en Zona 4: establecimiento 0,49 € + 1,95 €/min.\n"
+        "- SMS enviados desde Zona 4: 1 €/SMS.\n"
+        "- Datos: tarifa Mega Libre, precios muy elevados. Recomendar siempre uso de WiFi.\n"
+        "NUNCA uses el precio de 1,00 €/min para llamadas realizadas en Zona 4. "
+        "Ese precio corresponde a llamadas INTERNACIONALES desde España, no a roaming.\n"
+        "\n"
+
+        # NUEVO: precios roaming Zona 2 hardcodeados para evitar mezcla con Zona 3
+        "TARIFAS DE ROAMING EN ZONA 2 (USAR SIEMPRE ESTOS PRECIOS PARA ZONA 2):\n"
+        "Cuando el usuario esté físicamente EN un país de Zona 2 (EE.UU., Canadá, Japón, Argentina...):\n"
+        "- Llamadas realizadas desde Zona 2 a Zona 1: establecimiento 0,49 € + 1,45 €/min.\n"
+        "- Llamadas recibidas en Zona 2: establecimiento 0,49 € + 1,45 €/min.\n"
+        "- SMS enviados desde Zona 2: 1 €/SMS.\n"
+        "NUNCA uses 1,95 €/min para llamadas en Zona 2. Ese precio corresponde a Zona 3.\n"
+        "\n"
+
+        "TARIFAS ESPECÍFICAS EE.UU. (SOLO APLICAN A EE.UU., NO A CANADÁ NI PUERTO RICO):\n"
+        "Para viajes a EE.UU. existen dos opciones específicas que el usuario puede activar expresamente:\n"
+        "- Tarifa diaria: 5 euros cada 24h, incluye 200 minutos y 200 MB. Solo se cobra los días de uso.\n"
+        "- Bono mensual: 20 euros/mes, incluye 1.000 minutos y 1 GB.\n"
+        "IMPORTANTE - COMPARATIVA ECONÓMICA: el bono mensual (20 €) es siempre más barato que la tarifa "
+        "diaria para estancias de MÁS DE 4 DÍAS (4 días × 5 € = 20 €). Para 5 o más días, recomienda "
+        "siempre el bono mensual. Para 1-3 días, recomienda la tarifa diaria.\n"
+        "Canadá, Puerto Rico y el resto de países de Zona 2 NO tienen acceso a estas tarifas EE.UU. "
+        "Para ellos aplica únicamente el Bono Compartido Zona 2.\n"
+        "Sin estas tarifas activas, EE.UU. se rige por las condiciones generales de Zona 2.\n"
+        "\n"
+
+        "IMPORTANTE - REGLAS TRANSVERSALES A TODAS LAS TARIFAS INFINITY BUSINESS:\n"
+        "- Zona 1: datos y llamadas incluidos en la tarifa como si fuera España (sujeto a uso razonable).\n"
+        "- Llamadas recibidas en Zona 1: coste 0 euros (descuento 100%).\n"
+        "- Llamadas GCU (entre líneas MGEP del mismo grupo): coste 0 euros, incluso en roaming Zona 1.\n"
+        "- Soporte técnico 24x7: teléfono 900 878 007 (gratuito desde España), "
+        "+34 91 235 99 97 desde el extranjero (coste según tarifa).\n"
+        "- Restricción por robo o pérdida: inmediata llamando al 900 878 007.\n"
+        "- Duplicado de SIM: 5 euros, gestionar con el responsable de telefonía de MGEP.\n"
+        "\n"
+
+        "VELOCIDADES TRAS AGOTAR DATOS:\n"
+        "- Perfil Ilimitado (predeterminado si no se ha configurado otro): velocidad reducida a 128 Kbps.\n"
+        "- Perfiles con límite fijo (300 MB, 1 GB, 2 GB, 3 GB, 5 GB, 10 GB, 20 GB, 25 GB, 50 GB): "
+        "velocidad reducida a 8 Kbps.\n"
+        # NUEVO: instrucción explícita de consultar el perfil del usuario en BD antes de responder
+        "CRÍTICO: consulta siempre el [Perfil Usuario BD] para saber qué perfil tiene el usuario. "
+        "Si su tarifa es 'Infinity Business 10GB' u otro perfil con GB fijos, la velocidad reducida "
+        "es 8 Kbps. Si el perfil es 'Ilimitado', es 128 Kbps. "
+        "Si no se puede determinar el perfil, indica ambas opciones y pide al usuario que lo confirme "
+        "con el responsable de telefonía.\n"
+        "\n"
+
+        "POLÍTICA DE USO RAZONABLE EN ZONA 1:\n"
+        "Si el usuario menciona estancias en Zona 1 superiores a 4 meses, advierte siempre que "
+        "Vodafone puede considerar uso abusivo si la presencia y consumo en Zona 1 supera al realizado "
+        "en España durante ese período, y que pueden aplicarse recargos tras notificación de 15 días.\n"
+        "\n"
+
+        "LÍMITE DE GASTO EN ROAMING:\n"
+        "Existe un límite automático de 500 euros/mes para roaming de datos fuera de Zona 1 "
+        "(en Zona 1 dentro de uso razonable no aplica). En Zona 2 hay además un límite de 1 GB por línea. "
+        "Ambos límites son modificables desde Mi Vodafone Business sin coste.\n"
+        "\n"
+
         "INTERPRETACIÓN SEMÁNTICA:\n"
         "Cuando el usuario pregunta por:\n"
-        "- 'Llamadas a compañeros', 'llamadas a colegas', 'llamadas entre empleados' → busca 'Llamadas Intragrupo' o 'Intragrupo'\n"
-        "- 'Datos en viajes' → aplica reglas de Zona 1 del contrato general\n"
-        "- 'Soporte técnico', 'atención al cliente' → es disponible 24x7 en todas las tarifas Infinity Business\n"
+        "- 'Llamadas a compañeros / colegas / empleados de MGEP' → reglas GCU, coste 0 euros.\n"
+        "- 'Datos en viaje' → identifica primero el país y su zona antes de responder.\n"
+        "- 'Soporte técnico / atención al cliente / problema con la línea' → 900 878 007, 24x7.\n"
+        "- 'Me han robado / he perdido el móvil' → restricción inmediata llamando al 900 878 007.\n"
+        "- 'Hotspot / compartir datos / tethering' → permitido, consume del bono compartido habitual.\n"
+        # NUEVO: patrón para preguntas de comparativa económica
+        "- '¿Es mejor...?' / '¿Qué me conviene...?' / '¿Cuál es más barato...?' → haz el cálculo "
+        "numérico explícito antes de dar la recomendación. No des una respuesta condicional si puedes "
+        "calcular la respuesta exacta con los datos disponibles.\n"
         "\n"
+
+        "REGLAS DE PRESENTACIÓN:\n"
+        "- Si una condición indica descuento del 100%, el coste final para el usuario es 0 euros.\n"
+        "- Antes de responder sobre roaming, identifica explícitamente la zona del país de destino.\n"
+        "- Recomienda siempre confirmar con el responsable de telefonía de MGEP antes de viajar "
+        "a destinos fuera de Zona 1.\n"
+        "- Cuando sea útil, cita el número de fragmento: [Fragmento N].\n"
+        # NUEVO: evitar que el chatbot sugiera tarifas EE.UU. para destinos que no son EE.UU.
+        "- NUNCA sugieras las tarifas diaria o mensual de EE.UU. para destinos que no sean EE.UU. "
+        "continental. Para cualquier otro país de Zona 2 usa únicamente el Bono Compartido Zona 2.\n"
+        "\n"
+
         "FUENTES DE INFORMACIÓN:\n"
-        "- [Perfil Usuario BD]: Información de la base de datos (tarifa actual, número de línea, nombre usuario) - FUENTE AUTORITARIA\n"
-        "- [Fragmento N]: Información del contrato marco de Vodafone - APLICA A TODAS LAS TARIFAS a menos que se especifique lo contrario\n"
+        "- [Perfil Usuario BD]: tarifa actual, número de línea, nombre — FUENTE AUTORITARIA.\n"
+        "- [Fragmento N]: cláusulas del contrato marco — aplica a todas las tarifas salvo indicación expresa.\n"
         "\n"
-        "Si la pregunta pide informacion de otra persona o de otro cliente, responde que no puedes ayudar con datos de terceros. "
-        "Si la respuesta no esta en el contexto del usuario autenticado, di claramente que no aparece en los fragmentos recuperados. "
-        "Cuando sea util, cita el numero de fragmento, por ejemplo: [Fragmento 1]."
+
+        "Si la pregunta pide información de otra persona o cliente, responde que no puedes ayudar con datos de terceros. "
+        "Si la respuesta no está en el contexto, indícalo claramente en lugar de inferir o inventar."
     )
 
     user_prompt = (
@@ -840,7 +999,8 @@ def rag(
             response_language=response_language,
         )
 
-    chunks = search_azure(cleaned_question)
+    rag_question = _enrich_roaming_query(cleaned_question)
+    chunks = search_azure(rag_question)
     context = build_context(chunks)
 
     profile_row = _fetch_user_profile_from_postgres(username=username)
@@ -850,6 +1010,7 @@ def rag(
     if profile_context:
         context = f"{profile_context}\n\n{context}" if context else profile_context
 
+    context = _inject_fair_use_context(cleaned_question, context)
     answer = generate_answer(
         cleaned_question,
         context,

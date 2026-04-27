@@ -1,0 +1,214 @@
+id,question,ground_truth,api_answer,chunks_count,error
+11,"Me voy de viaje de trabajo a Estados Unidos, ¿tengo incluidos los datos y llamadas?","EE.UU. está en la Zona 2 (Zona World de Grandes Clientes), no en Zona 1. Los datos van contra el Bono Compartido Zona 2 contratado por MGEP. Si se supera el bono, se aprovisiona automáticamente un bono adicional de 500 MB a 140 €. Para voz, se aplican las tarifas de Roaming Resto de Zonas, salvo que se active expresamente la Tarifa Infinity Business EE.UU. (diaria a 5€/24h con 200 min y 200 MB, o mensual a 20€/mes con 1.000 min y 1 GB).","En tu viaje de trabajo a Estados Unidos, los datos y llamadas no están incluidos como si estuvieras en España. Estados Unidos pertenece a Zona 2, y tu tarifa actual es ""Infinity Business 10GB"", lo que implica que tienes un bono compartido de datos para Zona 2. Sin embargo, para optimizar costes, puedes activar una de las siguientes opciones específicas para EE.UU.:
+
+1. **Tarifa diaria EE.UU.**: 5 € cada 24 horas, incluye 200 minutos y 200 MB. Solo se cobra los días que la uses.
+2. **Bono mensual EE.UU.**: 20 €/mes, incluye 1.000 minutos y 1 GB. Es más económico si tu estancia supera los 4 días.
+
+Si no activas ninguna de estas opciones, se aplicarán las condiciones generales de Zona 2:
+- Llamadas realizadas: establecimiento 0,49 € + 1,45 €/min.
+- Llamadas recibidas: establecimiento 0,49 € + 1,45 €/min.
+- SMS enviados: 1 €/SMS.
+- Datos: consumo del bono compartido Zona 2 (1 GB por línea). Si superas el bono, se aprovisionará automáticamente un bono adicional de 500 MB por 140 €.
+
+Para estancias de más de 4 días, te recomiendo activar el **Bono mensual EE.UU.** por 20 €, ya que es más económico que la tarifa diaria. Confirma esta activación con el responsable de telefonía de MGEP antes de viajar.",3,
+12,¿Qué países están incluidos en mi roaming gratuito (Zona 1) además de los países de la UE?,"Además de los países de la UE, la Zona 1 incluye: Reino Unido, Islandia, Liechtenstein, Noruega, Suiza, Turquía, Kosovo, Gibraltar, Mónaco, San Marino y Caribe Francés / La Reunión. EE.UU. NO está en Zona 1, está en Zona 2.","Los países incluidos en tu roaming gratuito (Zona 1) además de los países de la UE son los siguientes:
+
+- Reino Unido  
+- Noruega  
+- Islandia  
+- Liechtenstein  
+- Suiza  
+- Turquía  
+- Gibraltar  
+- Mónaco  
+- San Marino  
+- Kosovo  
+- Caribe Francés  
+- La Reunión  
+
+Recuerda que en estos países puedes utilizar los datos y minutos de tu tarifa como si estuvieras en España, sujeto a la política de uso razonable. Si necesitas más información, no dudes en consultarme.",3,
+13,"He gastado todos los datos este mes y necesito seguir trabajando, ¿puedo pedir más?","Sí. El contrato prevé Bonos Extra individuales (1 GB, 2 GB, 5 GB, 10 GB en modalidad mensual; o 200 MB, 500 MB, 1 GB en modalidad puntual) y Bonos Compartidos puntuales (2 GB, 5 GB, 10 GB, 20 GB, 50 GB). Debes contactar con el responsable de telefonía de MGEP o gestionarlo desde Mi Vodafone Business.","Martin Corbella Zubizarreta, según tu perfil, tienes la tarifa ""Infinity Business 10GB"", lo que implica que, tras consumir los 10 GB de tu bono mensual, la velocidad de navegación se reduce a **8 Kbps**. Sin embargo, puedes solicitar bonos adicionales para seguir trabajando con una velocidad normal.
+
+Opciones disponibles:
+1. **Bono Extra Mensual**: Se añade a tu cuenta y se consume antes que otros bonos. Es ideal si necesitas datos adicionales durante todo el mes.
+2. **Bono Compartido Puntual**: Se activa para un uso específico y se consume después del Bono Extra Mensual.
+3. **Bonos Individuales de Datos**: Se asignan directamente a tu línea y se consumen después de los bonos compartidos.
+
+Para gestionar cualquiera de estos bonos, puedes acceder a **Mi Vodafone Business** o contactar con la plataforma de atención personalizada. Te recomiendo confirmar con el responsable de telefonía de MGEP cuál sería la mejor opción para tu caso.",3,
+14,"Si llamo a un compañero de MGEP que también tiene móvil de empresa, ¿nos cobran?","No. Las llamadas entre líneas del mismo grupo corporativo (GCU) tienen un descuento del 100%, por lo que el coste es 0 €. Esto aplica tanto en España como en roaming Zona 1.","Si llamas a un compañero de MGEP que también tiene móvil corporativo dentro del mismo grupo, estas llamadas se consideran GCU (Grupo Cerrado de Usuarios). Según las condiciones de tu tarifa ""Infinity Business 10GB"", las llamadas GCU tienen un coste de **0 euros**, incluso si estás en roaming en Zona 1. Por tanto, no se te cobrará por este tipo de llamadas.",3,
+15,"Estoy en Suiza y quiero llamar a un número local de allí, ¿está incluido?","Sí. Suiza es Zona 1. Las llamadas realizadas desde Zona 1 a destinos nacionales o a otros países de Zona 1 están incluidas en la tarifa (descuento 100%), por lo que no tienen coste adicional.","Suiza pertenece a la **Zona 1** según la clasificación oficial de roaming. Esto significa que las llamadas realizadas a números locales en Suiza están incluidas en tu tarifa **Infinity Business 10GB**, como si estuvieras en España, siempre que se respete la política de uso razonable.
+
+Por lo tanto, puedes llamar a un número local en Suiza sin coste adicional. Además, las llamadas recibidas también tienen un descuento del 100%, es decir, son gratuitas.",3,
+16,"He perdido mi tarjeta SIM, ¿cómo pido un duplicado?",Debes contactar con el responsable de telefonía de MGEP. El duplicado de SIM tiene un coste de 5 € por tarjeta según el contrato.,"Para solicitar un duplicado de tu tarjeta SIM, debes contactar con el responsable de telefonía de MGEP, ya que el procedimiento interno de la empresa requiere su gestión. El coste del duplicado es de 5 euros. Además, si has perdido tu móvil, puedes restringir la línea de forma inmediata llamando al soporte técnico de Vodafone al 900 878 007 (gratuito desde España) o al +34 91 235 99 97 si estás en el extranjero (coste según tarifa).",3,
+17,¿A partir de qué hora puedo llamar al servicio técnico si tengo un problema con la línea?,"El Servicio de Asistencia Técnica Gran Empresa está disponible las 24 horas del día, los 365 días del año, de forma gratuita en el teléfono 900 878 007. No hay restricción horaria.","El servicio técnico de Vodafone para MGEP está disponible las 24 horas, los 7 días de la semana. Puedes contactar llamando al **900 878 007** desde España o al **+34 91 235 99 97** desde el extranjero (el coste de esta última llamada dependerá de la tarifa aplicable).",3,
+18,"Si me paso del límite de datos en el extranjero (Zona 1), ¿se corta internet o solo va más lento?","En Zona 1, una vez agotado el bono compartido, la velocidad se reduce: a 128 Kbps si tienes perfil Ilimitado (predeterminado), o a 8 Kbps si tienes un perfil con límite fijo. No se corta el servicio automáticamente, aunque si se supera el uso razonable pueden aplicarse recargos.","Si te pasas del límite de datos en Zona 1, el internet no se corta automáticamente, pero la velocidad se reduce. Según tu perfil de tarifa actual, ""Infinity Business 10GB"", la velocidad tras agotar los datos se reduce a **8 Kbps**, lo que hace que la navegación sea extremadamente lenta. 
+
+Es importante destacar que, en Zona 1, los datos están incluidos como si estuvieras en España, siempre que el uso sea razonable. Si superas el uso razonable (por ejemplo, estancias prolongadas en Zona 1 que excedan el consumo nacional), Vodafone podría aplicar recargos adicionales tras una notificación previa de 15 días. 
+
+Si necesitas más datos o velocidad, puedes consultar con el responsable de telefonía de MGEP para ajustar tu perfil o ampliar los límites.",3,
+19,"Me voy a Canadá de viaje de empresa, ¿tengo datos incluidos o tengo que pagar extra?","Canadá está en la Zona 2 (Zona World de Grandes Clientes). Los datos van contra el Bono Compartido Zona 2 contratado por MGEP. Si se supera el bono, se aprovisiona automáticamente un bono adicional de 500 MB a 140 €. Confirma con el responsable de telefonía que el bono Zona 2 está activo antes de viajar.","Canadá pertenece a la **Zona 2 (World Grandes Clientes)** según la clasificación oficial de roaming. En tu caso, con la tarifa **Infinity Business 10GB**, los datos en Canadá no están incluidos como en Zona 1. Sin embargo, dispones de acceso al **Bono Compartido Zona 2**, que incluye un límite de 1 GB por línea. 
+
+Si superas este límite de 1 GB, se aprovisionará automáticamente un bono adicional de 500 MB con un coste de **140 euros**. Además, existe un límite de gasto mensual de **500 euros** para roaming de datos fuera de Zona 1, que puedes modificar desde Mi Vodafone Business sin coste.
+
+Te recomiendo confirmar con el responsable de telefonía de MGEP si necesitas ampliar el bono o ajustar los límites antes de tu viaje.",3,
+20,"Estoy en Francia y he agotado mis datos del bono compartido, ¿a qué velocidad puedo seguir navegando?","Depende de tu perfil de datos. Si tienes el perfil Ilimitado (predeterminado), puedes seguir navegando a 128 Kbps. Si tienes asignado un perfil con límite fijo (ej. 10 GB), la velocidad se reduce a 8 Kbps. En ningún caso se corta el servicio.","Martin Corbella Zubizarreta, según tu perfil de usuario, tienes la tarifa **Infinity Business 10GB**. Esto significa que, una vez agotados los datos del bono compartido, podrás seguir navegando a una velocidad reducida de **8 Kbps**. 
+
+Si necesitas mayor velocidad, puedes considerar contratar un bono extra de datos. Te recomiendo confirmar esta gestión con el responsable de telefonía de MGEP.",3,
+21,¿Puedo llamar gratis a un compañero de MGEP que está destinado en Alemania cuando yo estoy en España?,"Sí. Si tu compañero tiene línea dentro del mismo grupo corporativo (GCU), la llamada tiene descuento del 100% y es gratuita. Las llamadas GCU están incluidas independientemente de la ubicación del destinatario siempre que esté en Zona 1.","Sí, puedes llamar gratis a un compañero de MGEP que está en Alemania mientras tú estás en España. Las llamadas GCU (entre líneas MGEP del mismo grupo) tienen un coste de 0 euros, incluso en roaming en Zona 1, que incluye Alemania. Esto está cubierto por las condiciones de tu tarifa **Infinity Business 10GB**.",3,
+22,"Me roban el móvil en Londres, ¿qué hago para bloquear la línea y cuánto tarda Vodafone?","Llama inmediatamente al 900 878 007 (disponible 24x7, gratuito) para solicitar la restricción por robo o pérdida. Según el contrato, la restricción por robo o pérdida se aplica de forma inmediata.","Si te han robado el móvil en Londres, debes proceder de la siguiente manera para bloquear la línea:
+
+1. **Llamar al soporte técnico de Vodafone**: Puedes contactar al servicio de atención al cliente llamando al número gratuito **900 878 007** desde España o al número internacional **+34 91 235 99 97** desde el extranjero. Este servicio está disponible las 24 horas, los 7 días de la semana.
+
+2. **Solicitar la restricción inmediata de la línea**: Vodafone bloqueará la línea de forma inmediata para evitar usos indebidos. Este proceso no tiene coste adicional.
+
+3. **Duplicado de SIM**: Una vez bloqueada la línea, puedes solicitar un duplicado de la tarjeta SIM. El coste del duplicado es de **5 euros** y debe gestionarse a través del responsable de telefonía de MGEP.
+
+En cuanto al tiempo de respuesta, la restricción de la línea es **inmediata** una vez que se realiza la solicitud.",3,
+23,"Voy a estar un mes en Japón trabajando, ¿cómo funciona el roaming de datos allí?","Japón está en la Zona 2 (Zona World de Grandes Clientes). Los datos van contra el Bono Compartido Zona 2 contratado por MGEP. Si se supera el bono contratado, se aprovisiona automáticamente un bono adicional de 500 MB a 140 €. Consulta con el responsable de telefonía que el bono Zona 2 esté activo.","Japón pertenece a la **Zona 2 (World Grandes Clientes)** en el contrato de Vodafone para MGEP. Esto significa que el roaming de datos allí se gestiona bajo el **Bono Compartido Zona 2**, con las siguientes condiciones:
+
+1. **Datos**: 
+   - Dispones de un límite de **1 GB por línea** dentro del Bono Compartido Zona 2. Si alcanzas este límite, se restringirá el uso de datos automáticamente.
+   - Puedes solicitar ampliaciones de 1 GB adicionales por un coste de **140 euros** cada uno, o activar límites menores (100 MB o 200 MB) sin coste adicional. Estas gestiones se realizan desde **Mi Vodafone Business**.
+
+2. **Coste adicional**:
+   - Si no tienes bonos adicionales y consumes datos fuera del bono, se aplicará la tarifa estándar de **Mega Libre**, que tiene precios elevados. Es recomendable evitar este escenario.
+
+3. **Límite de gasto**:
+   - Existe un límite automático de **500 euros/mes** para roaming de datos fuera de Zona 1. Este límite es modificable desde **Mi Vodafone Business** sin coste.
+
+4. **Recomendación**:
+   - Para optimizar costes, utiliza WiFi siempre que sea posible y confirma con el responsable de telefonía de MGEP si necesitas ampliar el bono antes de viajar.
+
+Si necesitas más información o gestionar algún ajuste, puedes contactar con el soporte técnico de Vodafone al **900 878 007** desde España o al **+34 91 235 99 97** desde el extranjero.",3,
+24,¿Cuánto me cuesta enviar un SMS desde Noruega a un número español?,"Noruega es Zona 1. Los SMS enviados desde Zona 1 a destinos nacionales están incluidos en el crédito de SMS de tu tarifa (2,44 SMS individuales por línea), por lo que dentro de ese crédito el coste es 0 €.","Noruega pertenece a la Zona 1 según la clasificación oficial de roaming. En esta zona, los SMS enviados tienen un coste de **0 euros**, ya que están incluidos en tu tarifa ""Infinity Business 10GB"" bajo las condiciones de uso razonable. Por lo tanto, enviar un SMS desde Noruega a un número español no te generará ningún coste adicional.",3,
+25,"Si llamo desde México a España, ¿sale del bono de minutos nacionales?","No. México está en la Zona 2 (Zona World de Grandes Clientes). Las llamadas realizadas desde Zona 2 se tarificarán según las tarifas de Roaming Resto de Zonas, no como tráfico nacional. Consulta con el responsable de telefonía antes de viajar.","No, las llamadas realizadas desde México a España no salen del bono de minutos nacionales. México pertenece a Zona 2, y las llamadas realizadas desde Zona 2 a Zona 1 tienen un coste de **0,49 € de establecimiento** más **1,45 €/minuto**, según las tarifas de roaming aplicables. Estas llamadas no están incluidas en el bono de minutos nacionales de tu tarifa Infinity Business 10GB.",3,
+26,¿Puedo usar el móvil de empresa en Cuba?,"Cuba está en la Zona 4 (Resto de África, Asia, Oceanía y Cuba). Es la zona más cara del contrato. Las llamadas y datos se tarifican según las tarifas de Roaming Zona 4 (hasta 4,96 €/min realizadas y 1,95 €/min recibidas). No está incluido en Zona 1 ni en el Bono Zona 2.","Sí, puedes usar tu móvil de empresa en Cuba, pero debes tener en cuenta que Cuba pertenece a la **Zona 4**, que es la más cara del contrato. Las tarifas de roaming en Zona 4 son las siguientes:
+
+- **Llamadas realizadas desde Zona 4**: establecimiento de 0,49 € + 4,96 €/min.
+- **Llamadas recibidas en Zona 4**: establecimiento de 0,49 € + 1,95 €/min.
+- **SMS enviados desde Zona 4**: 1 €/SMS.
+- **Datos**: tarifa Mega Libre, con precios muy elevados. Se recomienda usar WiFi siempre que sea posible.
+
+Tu tarifa actual es **Infinity Business 10GB**, por lo que, si agotas los datos disponibles, la velocidad se reducirá a **8 Kbps**. Esto puede dificultar el uso de aplicaciones que requieran conexión rápida.
+
+Dado que los costes en Zona 4 son altos, te recomiendo confirmar con el responsable de telefonía de MGEP antes de viajar y considerar alternativas como el uso de WiFi para minimizar gastos.",3,
+27,"Tengo pensado quedarme 6 meses en Alemania trabajando en remoto, ¿hay algún problema con el roaming?","Sí. El contrato tiene una cláusula de uso razonable: si en un período mínimo de 4 meses el consumo y la estancia en países de Zona 1 supera al realizado en España, Vodafone puede notificarte uso abusivo y aplicar recargos. Con 6 meses continuados en Alemania es muy probable que se active esta cláusula. Informa al responsable de telefonía de MGEP antes de planificar una estancia tan larga.","Si planeas quedarte 6 meses en Alemania, que pertenece a Zona 1, debes tener en cuenta la **Política de Uso Razonable** de Vodafone. Según esta política, si en un período de 4 meses tu consumo y estancia en Zona 1 superan al realizado en España, Vodafone puede considerar que el uso es abusivo. En ese caso, te notificarían y tendrías 15 días para ajustar tus pautas de uso. Si no lo haces, podrían aplicarte recargos adicionales al tráfico realizado en Zona 1.
+
+Para evitar problemas, te recomiendo que:
+1. Mantengas un equilibrio en el uso de tu línea entre Alemania y España durante esos 6 meses.
+2. Consideres conectarte a la red nacional española ocasionalmente si tienes oportunidad, ya que esto cuenta como días de presencia en España.
+3. Consultes con el responsable de telefonía de MGEP antes de tu viaje para confirmar cualquier detalle adicional.
+
+Si necesitas más información o soporte técnico, puedes contactar con Vodafone al **+34 91 235 99 97** desde el extranjero.",3,
+28,¿Qué pasa si recibo una llamada mientras estoy de roaming en Turquía?,"Turquía es Zona 1. Las llamadas recibidas en roaming Zona 1 tienen un descuento del 100% (coste 0 €), por lo que recibirlas es completamente gratuito.","Turquía pertenece a **Zona 1** según la clasificación oficial de roaming. Esto significa que, mientras estés en Turquía, las llamadas recibidas tienen un coste de **0 euros**, ya que el descuento es del 100%. Además, cualquier llamada realizada entre líneas de MGEP (reglas GCU) también tendrá un coste de **0 euros**.
+
+Por lo tanto, si recibes una llamada mientras estás en Turquía, no tendrás ningún coste adicional.",3,
+29,"Voy a Andorra de viaje de empresa, ¿funciona igual que en España o hay roaming?","Andorra NO está en Zona 1. Para roaming de datos, Andorra tiene sus propias tarifas (Zona 5 en llamadas internacionales: 0,41 €/min con descuento del 100%). Consulta con el responsable de telefonía antes de viajar ya que no disfruta de las mismas condiciones que los países de la UE.","Andorra pertenece a **Zona 5** según la clasificación oficial de Vodafone. Esto significa que **sí hay roaming** y no funciona igual que en España. Aunque es un país vecino, no se incluye en Zona 1.
+
+En tu caso, con la tarifa **Infinity Business 10GB**, las llamadas realizadas y recibidas en Andorra tienen un coste de establecimiento de 0,49 € y un precio por minuto de 0,41 €, pero se aplica un descuento del 100%, por lo que el coste final es **0 euros**. Los SMS enviados desde Andorra también tienen un descuento del 100%, por lo que no tienen coste adicional. 
+
+Respecto a los datos, se descontarán de tu bono habitual de 10 GB. Una vez agotados, la velocidad se reducirá a **8 Kbps**, según tu perfil de usuario.
+
+Recuerda que si tu estancia en Andorra supera los 4 meses y tu consumo allí es mayor que en España, Vodafone podría considerar un uso abusivo y aplicar recargos tras una notificación de 15 días. 
+
+Si necesitas más información o confirmar algún detalle, te recomiendo contactar con el responsable de telefonía de MGEP.",3,
+30,"Tengo una escala larga en Dubai y voy a usar el móvil en el aeropuerto, ¿qué me cobran?","Emiratos Árabes Unidos (Dubai) está en la Zona 4. Es la zona más cara: llamadas realizadas a 4,96 €/min y recibidas a 1,95 €/min (antes de descuentos). Los datos se tarifican según tarifa Mega Libre. Se recomienda activar el límite de roaming datos desde Mi Vodafone Business antes de viajar.","Dubai pertenece a la **Zona 4**, por lo que las tarifas aplicables durante tu escala en el aeropuerto son las siguientes:
+
+- **Llamadas realizadas desde Dubai**: establecimiento de llamada 0,49 € + 4,96 €/min.
+- **Llamadas recibidas en Dubai**: establecimiento de llamada 0,49 € + 1,95 €/min.
+- **SMS enviados desde Dubai**: 1 €/SMS.
+- **Datos móviles**: se aplica la tarifa Mega Libre, cuyos precios son muy elevados. Se recomienda encarecidamente usar WiFi en lugar de datos móviles.
+
+Dado que tu tarifa es **Infinity Business 10GB**, si consumes datos en Dubai, la velocidad se reducirá a **8 Kbps** una vez agotados los 10 GB contratados. Además, recuerda que existe un límite automático de gasto de **500 euros/mes** para roaming de datos fuera de Zona 1, aunque este límite puede ser modificado desde Mi Vodafone Business.
+
+Si necesitas más información o deseas confirmar algo antes de tu viaje, te recomiendo contactar al responsable de telefonía de MGEP.",3,
+31,"Me voy a trabajar a Marruecos dos semanas, ¿tengo datos incluidos en mi tarifa?","Marruecos está en la Zona 2 (Zona World de Grandes Clientes), no en Zona 1. Los datos van contra el Bono Compartido Zona 2 contratado por MGEP. Si se supera el bono, se aprovisiona automáticamente un bono adicional de 500 MB a 140 €. Confirma con el responsable de telefonía que el bono esté activo.","Marruecos pertenece a la **Zona 2** según la clasificación oficial de roaming. En tu caso, con la tarifa **Infinity Business 10GB**, los datos no están incluidos automáticamente en esta zona. Para el uso de datos en Marruecos, se aplicará el **Bono Compartido Zona 2**, que tiene un límite de 1 GB por línea. Si superas este bono, se aprovisionará automáticamente un bono adicional de 500 MB por 140 euros.
+
+Te recomiendo confirmar con el responsable de telefonía de MGEP si necesitas ampliar el límite de datos o ajustar tu configuración antes de viajar. Además, considera utilizar WiFi siempre que sea posible para evitar costes elevados.",3,
+32,"Me voy a Argentina un mes, ¿cómo funciona el roaming?","Argentina está en la Zona 2 (Zona World de Grandes Clientes). Para datos, van contra el Bono Compartido Zona 2. Para llamadas, aplican las tarifas de Roaming Resto de Zonas (Zona 2: 1,45 €/min realizadas con establecimiento de 0,49 €, y 1,45 €/min recibidas). Consulta con el responsable de telefonía antes de viajar.","Argentina pertenece a **Zona 2** según la clasificación oficial de roaming. Aquí tienes los detalles sobre cómo funciona el roaming durante tu estancia de un mes:
+
+### Llamadas:
+- **Llamadas realizadas desde Zona 2 a Zona 1** (Europa y países incluidos en Zona 1):  
+  - Establecimiento: **0,49 €**  
+  - Precio por minuto: **1,45 €/min**  
+
+- **Llamadas recibidas en Zona 2**:  
+  - Establecimiento: **0,49 €**  
+  - Precio por minuto: **1,45 €/min**  
+
+### SMS:
+- **SMS enviados desde Zona 2**:  
+  - Precio por SMS: **1 €/SMS**  
+
+### Datos:
+- Tu tarifa actual es **Infinity Business 10GB**, lo que significa que tienes un bono compartido de datos en Zona 2. Si superas el bono, se aprovisionará automáticamente un bono adicional de **500 MB por 140 €**.  
+- Ten en cuenta que el límite de datos en Zona 2 es **1 GB por línea**. Si necesitas más datos, puedes gestionar bonos adicionales desde **Mi Vodafone Business**.
+
+### Recomendaciones:
+1. **Confirmar con el responsable de telefonía de MGEP** si necesitas ampliar el bono de datos para evitar costes elevados.  
+2. Si no necesitas muchos datos, utiliza WiFi siempre que sea posible para reducir el consumo.  
+3. Para llamadas entre líneas de MGEP (GCU), el coste es **0 euros**, incluso en roaming.  
+
+Si tienes más preguntas o necesitas ajustar tu configuración antes del viaje, no dudes en consultarlo.",3,
+33,¿Puedo usar el hotspot de mi móvil para conectar el portátil cuando estoy de roaming en Europa?,"Sí, puedes compartir datos mediante hotspot en Zona 1 (Europa). El consumo de datos va contra el mismo bono compartido de tu tarifa Infinity Business. Ten en cuenta que el uso excesivo podría activar la política de uso razonable.","Sí, puedes usar el hotspot de tu móvil para conectar el portátil mientras estás de roaming en Europa (Zona 1). Según las condiciones de tu tarifa **Infinity Business 10GB**, los datos móviles nacionales incluidos en tu tarifa están disponibles en cualquier país de Zona 1 sin coste adicional, siempre que el uso sea razonable. Esto incluye el uso de tethering o compartir datos mediante hotspot.
+
+Ten en cuenta que, una vez consumidos los 10 GB de tu tarifa, la velocidad de navegación se reducirá a **8 Kbps**, lo que podría afectar significativamente la experiencia de conexión del portátil. Si necesitas más datos, puedes consultar con el responsable de telefonía de MGEP para opciones adicionales.",3,
+34,"Estoy en Italia y quiero llamar a un colega que también está en Italia (él también tiene móvil MGEP), ¿qué tarifa aplica?","Al ser ambos del mismo grupo corporativo (GCU) y estar Italia en Zona 1, la llamada se identifica como destino GCU en roaming Zona 1 y tiene descuento del 100%, por lo que el coste es 0 €.","Si estás en Italia y llamas a un colega que también está en Italia y ambos tienen móviles corporativos de MGEP, la llamada se considera una llamada GCU (Grupo Corporativo de Usuarios). Según las condiciones del contrato, las llamadas GCU tienen un coste de **0 euros**, incluso en roaming dentro de Zona 1 (Europa). Esto significa que no tendrás ningún cargo por realizar esta llamada. 
+
+Si necesitas más información, puedes contactar con el soporte técnico de Vodafone en el teléfono +34 91 235 99 97 desde el extranjero.",3,
+35,"Estoy en Nueva York y quiero llamar a España, ¿sale del bono de minutos o me cobran aparte?","EE.UU. está en Zona 2. Si no tienes activada la Tarifa Infinity Business EE.UU., las llamadas realizadas desde allí a España se tarifican como Roaming Zona 2 a Zona 1: establecimiento 0,49 € + 1,45 €/min (con descuento del 80%). Si tienes el bono mensual EE.UU. (20 €/mes), incluye 1.000 minutos.","Estando en Nueva York, que pertenece a Zona 2, las llamadas realizadas a España se tarifican según las condiciones de tu tarifa actual. En tu caso, tienes la tarifa ""Infinity Business 10GB"", que no incluye minutos específicos para EE.UU. Si no has activado ninguna de las tarifas específicas para EE.UU. (diaria o mensual), las llamadas se cobrarán aparte con los siguientes precios:
+
+- **Establecimiento de llamada:** 0,49 €.
+- **Precio por minuto:** 1,45 €.
+
+Si planeas realizar varias llamadas, te recomendaría activar el **Bono Mensual EE.UU.** por 20 €/mes, que incluye 1.000 minutos y 1 GB de datos. Es más económico si tu estancia supera los 4 días. Para estancias de 1 a 3 días, la **Tarifa Diaria EE.UU.** (5 €/día, incluye 200 minutos y 200 MB) podría ser más adecuada.
+
+Confirma con el responsable de telefonía de MGEP antes de realizar cambios en tu tarifa.",3,
+36,"Me llama un cliente desde España mientras yo estoy en Francia, ¿me cobran por recibir la llamada?","No. Francia es Zona 1 y las llamadas recibidas en roaming Zona 1 tienen un descuento del 100%, por lo que recibirlas es completamente gratuito.","Si te encuentras en Francia, que pertenece a Zona 1, y recibes una llamada desde España, el coste para ti es **0 euros**. Esto se debe a que las llamadas recibidas en Zona 1 tienen un descuento del 100% según tu tarifa **Infinity Business 10GB**. No se te aplicará ningún cargo por recibir la llamada.",3,
+37,"Tengo una avería técnica en la línea estando en el extranjero, ¿a quién llamo?","Puedes llamar al 900 878 007 (disponible 24x7, gratuito) desde España. Si estás en el extranjero, puedes llamar al +34 91 235 99 97 (el coste de la llamada depende de tu plan de precios).","Para resolver una avería técnica en tu línea mientras estás en el extranjero, debes llamar al **+34 91 235 99 97**. El coste de la llamada dependerá de tu plan de precios. Este número ofrece asistencia técnica 24x7 para usuarios en el extranjero. 
+
+Si prefieres contactar desde España, el número gratuito es **900 878 007**.",3,
+38,¿Hay algún límite automático de gasto en roaming para que no me llegue una factura inesperada?,"Sí. Por defecto existe un límite de 500 € mensuales para roaming de datos en todas las zonas (excluida Zona 1 en uso razonable). Además, en Zona 2 hay un límite de acceso de 1 GB por línea. Puedes modificar estos límites desde Mi Vodafone Business sin coste. Para Zona 1 dentro del uso razonable, el límite no aplica.","Sí, existe un límite automático de gasto en roaming para evitar facturas inesperadas. Según el contrato, se establece un límite predeterminado de **500 euros mensuales** para todas las zonas de roaming fuera del territorio nacional. Una vez alcanzado este límite, el uso de datos en roaming se restringe automáticamente. 
+
+Además, en la **Zona World de Grandes Clientes (Zona 2)**, cada línea tiene un límite adicional de **1 GB de datos** dentro del Bono Compartido. Si se alcanza este límite, el uso también se restringe, aunque puedes solicitar ampliaciones de 1 GB por línea si es necesario.
+
+Estos límites son configurables y puedes ajustarlos a través de **Mi Vodafone Business** sin coste adicional. Los valores disponibles van desde **50 euros hasta 20.000 euros** mensuales, según tus necesidades.
+
+Es importante destacar que estos límites no aplican en **Zona 1** (Europa) mientras el uso esté dentro de los parámetros de uso razonable. Si se excede este uso razonable, podrían aplicarse cargos adicionales que sí estarían sujetos al límite de roaming.
+
+Para cualquier modificación o consulta sobre estos límites, te recomiendo confirmarlo con el responsable de telefonía de MGEP.",3,
+39,¿Es mejor activar la tarifa diaria de EE.UU. o el bono mensual si voy solo una semana?,"Si vas una semana (7 días), la tarifa diaria costaría 7 × 5 € = 35 €, con 200 min y 200 MB por día. El bono mensual cuesta 20 €/mes con 1.000 min y 1 GB total. Para una semana, el bono mensual es más económico (20 € vs 35 €) y con más minutos totales. Consulta con el responsable de telefonía para activarlo.","Para una estancia de una semana en EE.UU., la opción más económica es **activar el bono mensual** de 20 euros. Este bono incluye 1.000 minutos y 1 GB de datos, lo que resulta más rentable que la tarifa diaria de 5 euros por día.
+
+Cálculo comparativo:
+- **Tarifa diaria**: 7 días × 5 € = 35 € (incluye 1.400 minutos y 1.400 MB en total, pero es más cara).
+- **Bono mensual**: 20 € (incluye 1.000 minutos y 1 GB, suficiente para la mayoría de los usuarios).
+
+Por tanto, para estancias de **5 días o más**, siempre es mejor el bono mensual. Te recomiendo activarlo antes de viajar.",3,
+40,"Voy a Puerto Rico, ¿está cubierto igual que EE.UU.?","Puerto Rico está en la Zona 2 (Zona World de Grandes Clientes), igual que EE.UU. en términos de roaming de datos (Bono Zona 2). Sin embargo, la Tarifa específica Infinity Business EE.UU. aplica solo para EE.UU., no para Puerto Rico. Consulta con el responsable de telefonía antes de viajar.","Puerto Rico pertenece a la **Zona 2** según la clasificación oficial de roaming. Esto significa que no está cubierto igual que EE.UU., ya que las tarifas específicas de EE.UU. (tarifa diaria de 5 €/día o bono mensual de 20 €) no aplican en Puerto Rico. 
+
+En Puerto Rico, se aplican las condiciones generales de la **Zona 2**, que son las siguientes:
+
+- **Llamadas realizadas**: establecimiento de 0,49 € + 1,45 €/min.
+- **Llamadas recibidas**: establecimiento de 0,49 € + 1,45 €/min.
+- **SMS enviados**: 1 €/SMS.
+- **Datos móviles**: consumo contra el Bono Compartido Zona 2. Si se supera el bono, se aprovisiona automáticamente un bono adicional de 500 MB por 140 €.
+
+Te recomiendo confirmar con el responsable de telefonía de MGEP si tienes activado el Bono Compartido Zona 2 antes de viajar. Además, recuerda que existe un límite automático de 500 € al mes para roaming de datos fuera de Zona 1, que puedes ajustar desde Mi Vodafone Business si lo necesitas.",3,
+41,"Voy a trabajar unos días a Gibraltar, ¿es roaming o se considera nacional?","Gibraltar está en la Zona 1 (Europa) a efectos de roaming. Por tanto, funciona igual que cualquier otro país europeo de Zona 1: datos y llamadas incluidos en tu tarifa con las mismas condiciones que en España.","Gibraltar pertenece a la **Zona 1** según la clasificación oficial de Vodafone. Esto significa que, mientras estés en Gibraltar, tu consumo de datos, llamadas y SMS se incluirá en tu tarifa nacional como si estuvieras en España, siempre sujeto a las políticas de uso razonable. 
+
+Por lo tanto, no se considera roaming en el sentido tradicional, y no tendrás costes adicionales por utilizar tu línea allí. Recuerda que las llamadas recibidas también tienen un coste de 0 euros en Zona 1. 
+
+Si tu estancia en Gibraltar supera los 4 meses y tu consumo allí es mayor que en España, Vodafone podría considerar el uso como abusivo y aplicar recargos tras una notificación previa de 15 días.",3,
+42,"Me voy a las Islas Canarias, ¿tengo roaming o es como estar en España?","Las Islas Canarias son territorio nacional español, por lo que no hay roaming. Usas tu tarifa exactamente igual que en la península, sin ningún coste adicional.","Las Islas Canarias son territorio nacional, por lo que no se aplica roaming. Para ti, Martin Corbella Zubizarreta, el uso de llamadas, SMS y datos será como si estuvieras en cualquier otra parte de España. Esto incluye el uso de tu tarifa ""Infinity Business 10GB"" sin restricciones adicionales.",3,
+43,"Voy a EE.UU. una semana y prefiero activar la tarifa diaria. Si un día no uso el móvil, ¿me cobran igual?",La tarifa diaria de EE.UU. (5 €/24h) se activa por uso. Solo se cobra en los días en que efectivamente uses el servicio en EE.UU. Los días que no uses el móvil no generan cargo por esta tarifa.,"No, la tarifa diaria de EE.UU. (5 euros cada 24 horas) solo se cobra los días en los que se utiliza el móvil, ya sea para llamadas, SMS o datos. Si un día no usas el móvil, no se te aplicará el cargo de 5 euros. Esto la hace una opción flexible para estancias cortas o uso intermitente.",3,
+44,"Estoy en Alemania y me quedo sin cobertura Vodafone, ¿puedo usar otra red?","Sí. En roaming, tu móvil se conecta automáticamente a operadores locales asociados a Vodafone en el país de destino. Las condiciones de Zona 1 se mantienen independientemente del operador local al que te conectes.","Sí, puedes usar otra red en Alemania si la cobertura de Vodafone no está disponible. Alemania pertenece a **Zona 1**, por lo que el uso de roaming está incluido en tu tarifa **Infinity Business 10GB** como si estuvieras en España, sujeto a la política de uso razonable. Esto significa que puedes conectarte a redes de otros operadores disponibles en Alemania sin coste adicional, siempre que se mantenga dentro de los límites de uso razonable establecidos por Vodafone.
+
+Si tienes problemas para conectarte, te recomiendo contactar con el soporte técnico de Vodafone llamando al **+34 91 235 99 97** desde el extranjero. Este servicio está disponible las 24 horas.",3,
+45,"Si viajo a varios países europeos en el mismo viaje, ¿tengo que hacer algo especial con la SIM?",No. Tu SIM funciona automáticamente en todos los países de Zona 1 sin ninguna configuración adicional. Los datos y minutos se comparten del mismo bono independientemente de cuántos países de Zona 1 visites en el mismo viaje.,"No necesitas hacer nada especial con la SIM para viajar a varios países europeos, ya que todos los países de la Zona 1 están incluidos en tu tarifa ""Infinity Business 10GB"". Esto significa que puedes usar tu línea como si estuvieras en España, con llamadas, SMS y datos incluidos, sujeto a la política de uso razonable.
+
+Sin embargo, ten en cuenta lo siguiente:
+1. **Uso razonable en Zona 1**: Si tu estancia y consumo en países de Zona 1 supera al realizado en España durante un período de 4 meses, Vodafone podría considerar el uso como abusivo y aplicar recargos tras una notificación de 15 días.
+2. **Llamadas entre líneas MGEP**: Si necesitas llamar a compañeros de MGEP, estas llamadas tienen coste 0 euros incluso en roaming en Zona 1.
+3. **Soporte técnico**: Si tienes algún problema con tu línea durante el viaje, puedes contactar con el soporte técnico al +34 91 235 99 97 (coste según tarifa).
+
+Recomiendo confirmar cualquier detalle adicional con el responsable de telefonía de MGEP antes de tu viaje.",3,
