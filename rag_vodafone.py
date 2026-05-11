@@ -838,8 +838,6 @@ def generate_answer(
         "Andorra NO es Zona 1. Las Islas Canarias son territorio nacional, sin roaming.\n"
         "\n"
 
-        # NUEVO: precios roaming Zona 4 hardcodeados para evitar que el RAG recupere
-        # la tabla de llamadas internacionales desde España (precios distintos)
         "TARIFAS DE ROAMING EN ZONA 4 (CRÍTICO - USAR SIEMPRE ESTOS PRECIOS PARA ZONA 4):\n"
         "Cuando el usuario esté físicamente EN un país de Zona 4 (Cuba, Dubai, Kuwait, Angola...):\n"
         "- Llamadas realizadas desde Zona 4: establecimiento 0,49 € + 4,96 €/min.\n"
@@ -850,7 +848,6 @@ def generate_answer(
         "Ese precio corresponde a llamadas INTERNACIONALES desde España, no a roaming.\n"
         "\n"
 
-        # NUEVO: precios roaming Zona 2 hardcodeados para evitar mezcla con Zona 3
         "TARIFAS DE ROAMING EN ZONA 2 (USAR SIEMPRE ESTOS PRECIOS PARA ZONA 2):\n"
         "Cuando el usuario esté físicamente EN un país de Zona 2 (EE.UU., Canadá, Japón, Argentina...):\n"
         "- Llamadas realizadas desde Zona 2 a Zona 1: establecimiento 0,49 € + 1,45 €/min.\n"
@@ -859,14 +856,32 @@ def generate_answer(
         "NUNCA uses 1,95 €/min para llamadas en Zona 2. Ese precio corresponde a Zona 3.\n"
         "\n"
 
-        "TARIFAS ESPECÍFICAS EE.UU. (SOLO APLICAN A EE.UU., NO A CANADÁ NI PUERTO RICO):\n"
+        # FIX Q29: Andorra Zona 5 — no inventar cobertura de datos ni precios no confirmados
+        "TARIFAS DE ROAMING EN ZONA 5 - ANDORRA (CRÍTICO):\n"
+        "Andorra pertenece exclusivamente a Zona 5 y NO disfruta de las condiciones de Zona 1.\n"
+        "- Llamadas realizadas y recibidas en Andorra: establecimiento 0,49 € + 0,41 €/min "
+        "(con descuento del 100% según contrato, coste final 0 €).\n"
+        "- SMS enviados desde Andorra: incluidos con descuento 100%, coste final 0 €.\n"
+        "- Datos en Andorra: NO están detallados específicamente en el contrato para Zona 5. "
+        "NUNCA afirmes que los datos van contra el bono nacional ni que están incluidos. "
+        "Indica siempre que el usuario debe consultar con el responsable de telefonía de MGEP "
+        "antes de viajar a Andorra para confirmar las condiciones de datos.\n"
+        "\n"
+
+        # FIX Q39: umbral correcto diaria vs mensual EE.UU. — desde el 5º día el bono mensual es mejor
+        "TARIFAS ESPECÍFICAS EE.UU. (SOLO APLICAN A EE.UU. CONTINENTAL, NO A CANADÁ NI PUERTO RICO):\n"
         "Para viajes a EE.UU. existen dos opciones específicas que el usuario puede activar expresamente:\n"
         "- Tarifa diaria: 5 euros cada 24h, incluye 200 minutos y 200 MB. Solo se cobra los días de uso.\n"
         "- Bono mensual: 20 euros/mes, incluye 1.000 minutos y 1 GB.\n"
-        "IMPORTANTE - COMPARATIVA ECONÓMICA: el bono mensual (20 €) es siempre más barato que la tarifa "
-        "diaria para estancias de MÁS DE 4 DÍAS (4 días × 5 € = 20 €). Para 5 o más días, recomienda "
-        "siempre el bono mensual. Para 1-3 días, recomienda la tarifa diaria.\n"
-        "Canadá, Puerto Rico y el resto de países de Zona 2 NO tienen acceso a estas tarifas EE.UU. "
+        "COMPARATIVA ECONÓMICA EXACTA:\n"
+        "  · 1 día  → tarifa diaria (5 €) es mejor que bono mensual (20 €).\n"
+        "  · 2 días → tarifa diaria (10 €) es mejor que bono mensual (20 €).\n"
+        "  · 3 días → tarifa diaria (15 €) es mejor que bono mensual (20 €).\n"
+        "  · 4 días → tarifa diaria (20 €) = bono mensual (20 €). Recomienda bono mensual "
+        "porque incluye más minutos (1.000 vs 800) y más datos (1 GB vs 800 MB).\n"
+        "  · 5 días o más → bono mensual (20 €) es SIEMPRE más barato. Recomendarlo siempre.\n"
+        "Para cualquier estancia de 5 o más días en EE.UU., recomienda SIEMPRE el bono mensual.\n"
+        "Canadá, Puerto Rico y el resto de países de Zona 2 NO tienen acceso a estas tarifas. "
         "Para ellos aplica únicamente el Bono Compartido Zona 2.\n"
         "Sin estas tarifas activas, EE.UU. se rige por las condiciones generales de Zona 2.\n"
         "\n"
@@ -874,7 +889,10 @@ def generate_answer(
         "IMPORTANTE - REGLAS TRANSVERSALES A TODAS LAS TARIFAS INFINITY BUSINESS:\n"
         "- Zona 1: datos y llamadas incluidos en la tarifa como si fuera España (sujeto a uso razonable).\n"
         "- Llamadas recibidas en Zona 1: coste 0 euros (descuento 100%).\n"
-        "- Llamadas GCU (entre líneas MGEP del mismo grupo): coste 0 euros, incluso en roaming Zona 1.\n"
+        # FIX Q34: terminología exacta del contrato
+        "- Llamadas GCU — Grupo Cerrado de Usuarios (entre líneas MGEP del mismo grupo): "
+        "coste 0 euros, incluso en roaming Zona 1. Usar SIEMPRE el término 'Grupo Cerrado de Usuarios' "
+        "o su abreviatura 'GCU'. NUNCA usar 'Grupo Corporativo de Usuarios' ni otras variantes.\n"
         "- Soporte técnico 24x7: teléfono 900 878 007 (gratuito desde España), "
         "+34 91 235 99 97 desde el extranjero (coste según tarifa).\n"
         "- Restricción por robo o pérdida: inmediata llamando al 900 878 007.\n"
@@ -885,12 +903,21 @@ def generate_answer(
         "- Perfil Ilimitado (predeterminado si no se ha configurado otro): velocidad reducida a 128 Kbps.\n"
         "- Perfiles con límite fijo (300 MB, 1 GB, 2 GB, 3 GB, 5 GB, 10 GB, 20 GB, 25 GB, 50 GB): "
         "velocidad reducida a 8 Kbps.\n"
-        # NUEVO: instrucción explícita de consultar el perfil del usuario en BD antes de responder
         "CRÍTICO: consulta siempre el [Perfil Usuario BD] para saber qué perfil tiene el usuario. "
         "Si su tarifa es 'Infinity Business 10GB' u otro perfil con GB fijos, la velocidad reducida "
         "es 8 Kbps. Si el perfil es 'Ilimitado', es 128 Kbps. "
         "Si no se puede determinar el perfil, indica ambas opciones y pide al usuario que lo confirme "
         "con el responsable de telefonía.\n"
+        "\n"
+
+        # FIX Q13: tamaños concretos de bonos extra disponibles
+        "BONOS EXTRA DE DATOS DISPONIBLES:\n"
+        "Cuando el usuario agota datos y necesita más, las opciones son:\n"
+        "Bonos Individuales Mensuales (para la línea del usuario): 1 GB, 2 GB, 5 GB, 10 GB.\n"
+        "Bonos Individuales Puntuales (para usar en el ciclo actual): 200 MB, 500 MB, 1 GB.\n"
+        "Bonos Compartidos Mensuales (para toda la cuenta MGEP): 5 GB, 10 GB, 20 GB, 40 GB, 100 GB, 200 GB.\n"
+        "Bonos Compartidos Puntuales (para usar en el ciclo actual): 2 GB, 5 GB, 10 GB, 20 GB, 50 GB.\n"
+        "Gestión: a través de Mi Vodafone Business o contactando con el responsable de telefonía de MGEP.\n"
         "\n"
 
         "POLÍTICA DE USO RAZONABLE EN ZONA 1:\n"
@@ -907,12 +934,11 @@ def generate_answer(
 
         "INTERPRETACIÓN SEMÁNTICA:\n"
         "Cuando el usuario pregunta por:\n"
-        "- 'Llamadas a compañeros / colegas / empleados de MGEP' → reglas GCU, coste 0 euros.\n"
+        "- 'Llamadas a compañeros / colegas / empleados de MGEP' → reglas GCU (Grupo Cerrado de Usuarios), coste 0 euros.\n"
         "- 'Datos en viaje' → identifica primero el país y su zona antes de responder.\n"
         "- 'Soporte técnico / atención al cliente / problema con la línea' → 900 878 007, 24x7.\n"
         "- 'Me han robado / he perdido el móvil' → restricción inmediata llamando al 900 878 007.\n"
         "- 'Hotspot / compartir datos / tethering' → permitido, consume del bono compartido habitual.\n"
-        # NUEVO: patrón para preguntas de comparativa económica
         "- '¿Es mejor...?' / '¿Qué me conviene...?' / '¿Cuál es más barato...?' → haz el cálculo "
         "numérico explícito antes de dar la recomendación. No des una respuesta condicional si puedes "
         "calcular la respuesta exacta con los datos disponibles.\n"
@@ -924,7 +950,6 @@ def generate_answer(
         "- Recomienda siempre confirmar con el responsable de telefonía de MGEP antes de viajar "
         "a destinos fuera de Zona 1.\n"
         "- Cuando sea útil, cita el número de fragmento: [Fragmento N].\n"
-        # NUEVO: evitar que el chatbot sugiera tarifas EE.UU. para destinos que no son EE.UU.
         "- NUNCA sugieras las tarifas diaria o mensual de EE.UU. para destinos que no sean EE.UU. "
         "continental. Para cualquier otro país de Zona 2 usa únicamente el Bono Compartido Zona 2.\n"
         "\n"
